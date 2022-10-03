@@ -7,14 +7,11 @@
     <title>Pagina 3</title>
 </head>
 <body>
-    <?php
-    session_start();
-        $aleatori = rand(1,100);
-        $_SESSION['aleatorio'] = $aleatori;
-    ?>
     <p>ENDEVINA EL NOMBRE</p>
     
     <?php
+        session_start();
+
         if(!isset($_GET['endevina'])){
             ?>
         <form>
@@ -25,7 +22,7 @@
 
     <?php
         }else{
-            if($_SESSION['aleatorio'] > $_GET['endevina']){
+            if($_SESSION['ocult'] > $_GET['endevina']){
                 echo "Es mayor";
                 ?>
                 <form>
@@ -34,7 +31,7 @@
                     <input type="submit">
                 </form>
                 <?php
-            }else if($_SESSION['aleatorio'] < $_GET['endevina']){
+            }else if($_SESSION['ocult'] < $_GET['endevina']){
                 echo "Es menor";
                 ?>
                 <form>
